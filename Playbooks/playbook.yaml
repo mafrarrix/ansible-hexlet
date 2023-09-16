@@ -1,0 +1,13 @@
+- name: install git
+  host: all
+  task:
+   - name: update cache pakage
+     ansible.bultin.apt:
+      update_cache: yes
+    become: yes
+
+   - name: install pakage git
+      ansible.bultin.apt:
+        name: git
+        state: present
+    become: yes
