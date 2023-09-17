@@ -5,8 +5,39 @@
     - name: update cache pakage
       ansible.builtin.apt:
         update_cache: yes
+      tag: update
 
     - name: install pakage git
       ansible.builtin.apt:
         name: git
         state: present
+      tags: install
+
+    - name: install pakage make
+      ansible.builtin.apt:
+        name: make
+        state: present
+      tags: install
+    
+    - name: install pakage nodejs
+      ansible.builtin.apt:
+        name: nodejs
+        state: present
+
+    - name: Create user
+      ansible.builtin.user:
+        name: arya
+        state: present
+      tags: install
+
+    - name: Create user
+      ansible.builtin.user:
+        name: sansa
+        state: present
+      tags: user
+
+    - name: Create user
+      ansible.builtin.user:
+        name: tirion
+        state: present
+      tags: user        
