@@ -6,3 +6,14 @@
   loop:
     - { name: user1, shell: /bin/zsh }
     - { name: user2, shell: /bin/bash }
+
+- name: Create users
+  user:
+    name: "{{ item }}"
+    state: present
+    with_items:
+      - arya
+      - sansa
+      - tirion
+    tags:
+      - create_users    
