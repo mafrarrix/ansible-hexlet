@@ -12,6 +12,7 @@
       ansible.builtin.copy:
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
+        force: yes
       loop:
         - { src: 'files/nginx.conf', dest: '/etc/nginx/nginx.conf' }
         - { src: 'files/index.html', dest: '/usr/share/nginx/html/index.html' }
