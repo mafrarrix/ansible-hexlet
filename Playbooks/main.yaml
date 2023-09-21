@@ -4,7 +4,10 @@
 
   tasks:
     - name: Include create_user tasks
-      include_tasks: create_user.yml
+      include_tasks: create_user.yaml
 
     - name: Include setup_workspace tasks
-      include_tasks: setup_workspace.yml
+      include_tasks: setup_workspace.yaml
+
+    - name: Include setup_workspace tasks
+      include_tasks: install-remove_git-make-node.yaml
