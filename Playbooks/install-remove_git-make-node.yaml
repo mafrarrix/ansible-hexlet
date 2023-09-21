@@ -22,22 +22,25 @@
     - name: install pakage nodejs
       ansible.builtin.apt:
         name: nodejs
-        state: present
+        state: present 
+      tags:
+        - install
 
-    - name: Create user
-      ansible.builtin.user:
-        name: arya
+    - name: install pakage git
+      ansible.builtin.apt:
+        name: git
         state: present
-      tags: install
+      tags: unistall
 
-    - name: Create user
-      ansible.builtin.user:
-        name: sansa
+    - name: install pakage make
+      ansible.builtin.apt:
+        name: make
         state: present
-      tags: user
-
-    - name: Create user
-      ansible.builtin.user:
-        name: tirion
-        state: present
-      tags: user        
+      tags: unistall
+    
+    - name: install pakage nodejs
+      ansible.builtin.apt:
+        name: nodejs
+        state: present 
+      tags:
+        - unistall
