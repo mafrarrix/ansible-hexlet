@@ -1,21 +1,8 @@
-- name: install git
-  hosts: all
-  become: yes
-  tasks:
-    - name: Create user
-      ansible.builtin.user:
-        name: arya
-        state: present
-      tags: install
-
-    - name: Create user
-      ansible.builtin.user:
-        name: sansa
-        state: present
-      tags: user
-
-    - name: Create user
-      ansible.builtin.user:
-        name: tirion
-        state: present
-      tags: user        
+- name: Add users with shells
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    shell: "{{ item.shell }}"
+    state: present
+  loop:
+    - { name: user1, shell: /bin/zsh }
+    - { name: user2, shell: /bin/bash }

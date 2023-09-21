@@ -1,6 +1,6 @@
 - name: Create directory
   ansible.builtin.file:
-    path: /home/myuser/workspace
+    path: /home/user/workspace
     state: directory
     mode: '0755'
 

@@ -1,0 +1,21 @@
+- name: install git
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create user
+      ansible.builtin.user:
+        name: arya
+        state: present
+      tags: install
+
+    - name: Create user
+      ansible.builtin.user:
+        name: sansa
+        state: present
+      tags: user
+
+    - name: Create user
+      ansible.builtin.user:
+        name: tirion
+        state: present
+      tags: user        
