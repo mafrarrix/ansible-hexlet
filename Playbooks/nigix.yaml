@@ -1,4 +1,6 @@
-- hosts: webservers
+- name: install nigix
+  hosts: all
+  become: yes
   tasks:
     - name: install nginx
       ansible.builtin.apt:
