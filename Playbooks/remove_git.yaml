@@ -1,6 +1,6 @@
 - name: Remove Git
   hosts: all
-  become: yes  # Utilizza l'escalation dei privilegi per ottenere i permessi di amministratore (solitamente sudo)
+  become: yes  
   tasks:
     - name: remove git pakage
       ansible.builtin.apt:
