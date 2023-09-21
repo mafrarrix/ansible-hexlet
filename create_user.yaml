@@ -2,20 +2,13 @@
   hosts: all
   become: yes
   tasks:
-    - name: Create user
-      ansible.builtin.user:
-        name: arya
+  - name: Create users
+    user:
+        name: "{{ item }}"
         state: present
-      tags: install
-
-    - name: Create user
-      ansible.builtin.user:
-        name: sansa
-        state: present
-      tags: user
-
-    - name: Create user
-      ansible.builtin.user:
-        name: tirion
-        state: present
-      tags: user        
+    with_items:
+      - arya
+      - sansa
+      - tirion
+    tags:
+      - create_users    
