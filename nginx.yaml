@@ -10,7 +10,7 @@
 
     - name: update nginx config
       ansible.builtin.copy:
-        src: nginx.conf
+        src: files/nginx.conf
         dest: /etc/nginx/nginx.conf
       notify:
         - restart nginx

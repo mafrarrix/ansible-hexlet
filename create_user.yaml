@@ -1,4 +1,4 @@
-- name: install git
+- name: users
   hosts: all
   become: yes
   tasks:
