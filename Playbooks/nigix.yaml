@@ -16,6 +16,9 @@
         - restart nginx
       become: yes
 
+    - name: Abilita il sito predefinito di Nginx
+      ansible.builtin.command: ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/   
+
   handlers:
     - name: restart nginx
       ansible.builtin.service:
