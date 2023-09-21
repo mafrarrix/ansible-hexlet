@@ -10,8 +10,11 @@
 
     - name: update nginx config
       ansible.builtin.copy:
-        src: files/nginx.conf
-        dest: /etc/nginx/nginx.conf
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      loop:
+        - { src: 'files/nginx.conf', dest: '/etc/nginx/nginx.conf' }
+        - { src: 'files/index.html', dest: '/usr/share/nginx/html/index.html' }
       notify:
         - restart nginx
       become: yes
