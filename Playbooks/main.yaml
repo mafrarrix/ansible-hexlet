@@ -1,7 +1,0 @@
-- name: Main Playbook
-  hosts: all
-  gather_facts: yes
-
-  tasks:
-    - name: Include setup_workspace tasks
-      include_tasks: setup_workspace.yml
