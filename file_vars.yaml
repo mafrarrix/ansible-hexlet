@@ -1,0 +1,22 @@
+- name: Installazione e configurazione di Nginx
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: Installa Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Copia il file index.html
+      ansible.builtin.copy:
+        src: files/index.html  
+        dest: /usr/share/nginx/html/index.html
+      notify:
+        - restart nginx
+
+  handlers:
+    - name: restart nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
