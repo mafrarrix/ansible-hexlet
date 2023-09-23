@@ -1,5 +1,5 @@
 - name: Main Playbook
-  hosts: Ubunutu
+  hosts: all
   gather_facts: yes
 
   tasks:
