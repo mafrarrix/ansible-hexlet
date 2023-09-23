@@ -3,11 +3,15 @@
   gather_facts: yes
 
   tasks:
-    - name: Include create_user tasks
-      include_tasks: create_user.yaml
-
     - name: Include setup_workspace tasks
       include_tasks: setup_workspace.yaml
 
     - name: Include setup_workspace tasks
       include_tasks: install-remove_git-make-node.yaml
+
+  handlers:
+  - name: restart nginx
+    ansible.builtin.service:
+      name: nginx
+      state: reloaded
+    become: yes
