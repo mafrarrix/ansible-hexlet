@@ -4,7 +4,7 @@
 
   tasks:
     - name: Include setup_workspace tasks
-      include_tasks: setup_workspace.yaml
+      include_tasks: setup_workspace.yml
 
     - name: Include setup_workspace tasks
       include_tasks: install-remove_git-make-node.yaml
