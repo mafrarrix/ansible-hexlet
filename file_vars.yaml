@@ -9,12 +9,12 @@
         state: present
 
     - name: Copia il file index.html
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: files/index.html  
         dest: /usr/share/nginx/html/index.html
       notify:
         - restart nginx
-
+        
   handlers:
     - name: restart nginx
       ansible.builtin.service:
