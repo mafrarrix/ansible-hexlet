@@ -1,0 +1,26 @@
+- name: Installazione e configurazione di Nginx
+  hosts: servers
+  become: yes
+
+  vars:
+    users:
+      - jaime
+      - sansa
+      - robert
+
+  tasks:
+    - name: Create useres
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: present
+      ansible.builtin.template:
+        src: templates/gitconfig.j2
+        dest: "{{ item }}"
+      loop: "{{ users }}"
+
+    - name: Copy git conf for users
+      ansible.builtin.template:
+        src: templates/gitconfig.j2
+        dest: /usr/share/nginx/html/index.html
+
+        
