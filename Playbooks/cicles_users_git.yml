@@ -1,4 +1,4 @@
-- name: Installazione e configurazione di Nginx
+- name: Install Git and configuring public key
   hosts: servers
   become: yes
 
@@ -13,14 +13,26 @@
       ansible.builtin.user:
         name: "{{ item }}"
         state: present
+        create_home: yes
+      loop: "{{ users }}"
+        
+    - name: Copy Git congiguration 
       ansible.builtin.template:
-        src: templates/gitconfig.j2
-        dest: "{{ item }}"
+        src: ../templates/gitconfig.j2
+        dest: "/home/{{ item }}/"
       loop: "{{ users }}"
 
-    - name: Copy git conf for users
-      ansible.builtin.template:
-        src: templates/gitconfig.j2
-        dest: /usr/share/nginx/html/index.html
+    - name: Create directory
+      ansible.builtin.file:
+        path: "/home/{{ item }}/.ssh/"
+        state: directory
+        mode: '0755'
+      loop: "{{ users }}"
 
-        
+    - name: Export public key   
+      ansible.builtin.copy:
+        src: ../files/id_rsa.pub
+        dest: "/home/{{ item }}/.ssh/authorized_keys"
+        owner: "{{ item }}"
+      loop: "{{ users }}"
+

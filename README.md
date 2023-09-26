@@ -1,5 +1,7 @@
 # Ansible Playbooks
+<p align="center">
 <img src=https://tel4vn.edu.vn/uploads/2020/07/ANSIBLE-01-2048x1177.jpg width="400px">
+</p>
 
 This repository contains a collection of Ansible playbooks for various tasks.
 
