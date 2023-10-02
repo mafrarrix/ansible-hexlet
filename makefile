@@ -1,2 +1,2 @@
 test:
-	ansible-playbook  Playbooks/file_vars.yml -i inventory.ini -vv
+	ansible-playbook  Playbooks/cowsay.yml -i inventory.ini -vv
