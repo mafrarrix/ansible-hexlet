@@ -10,7 +10,7 @@
 
     - name: Copia il file index.html
       ansible.builtin.template:
-        src: files/index.html  
+        src: ../files/index.html  
         dest: /usr/share/nginx/html/index.html
       notify:
         - restart nginx
