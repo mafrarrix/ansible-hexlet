@@ -1,9 +1,0 @@
-- name: Main Playbook
-  hosts: ubun
-  gather_facts: yes
-
-  roles:
-    - git
-    - postgres
-    - common
-
