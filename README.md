@@ -26,6 +26,7 @@ To execute the playbooks, use the following command:
 Make sure to update the inventory file (`inventory.ini`) with your target hosts.
 
 #### Example role playbook
+[Video del 01-12-2023 13:14:31.webm](https://github.com/mafrarrix/ansible-hexlet/assets/84633068/c7ec8b9e-76af-46d8-9483-db8d274ee2b1)
 
 
 #### License
